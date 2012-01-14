@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the DIYCHI Events feature.
+ */
+
+include_once('diychi_events.features.inc');
