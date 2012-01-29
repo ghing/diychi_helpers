@@ -12,9 +12,9 @@ function diychi_events_node_info() {
     'event' => array(
       'name' => t('Event'),
       'base' => 'node_content',
-      'description' => t('Shows, workshops, art shows, readings and other events for the DIY CHI website.'),
+      'description' => '',
       'has_title' => '1',
-      'title_label' => t('Title'),
+      'title_label' => t('Event Name'),
       'help' => '',
     ),
   );
