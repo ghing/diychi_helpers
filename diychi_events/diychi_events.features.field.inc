@@ -549,17 +549,7 @@ function diychi_events_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'field_contact',
-      'default_value' => array(
-        0 => array(
-          'entity' => {
-            "item_id" : null,
-            "field_name" : "field_email",
-            "field_contact_name" : { "und" : [] },
-            "field_contact_email" : { "und" : [] },
-            "field_public" : { "und" : [ { "value" : 0 } ] }
-          },
-        ),
-      ),
+      //'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -612,17 +602,7 @@ function diychi_events_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'field_contact',
-      'default_value' => array(
-        0 => array(
-          'entity' => {
-            "item_id" : null,
-            "field_name" : "field_phone",
-            "field_contact_name" : { "und" : [] },
-            "field_phone_number" : { "und" : [] },
-            "field_public" : { "und" : [ { "value" : 0 } ] }
-          },
-        ),
-      ),
+      'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
       'display' => array(
