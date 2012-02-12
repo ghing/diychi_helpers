@@ -27,6 +27,14 @@ function diychi_workshops_node_info() {
       'title_label' => t('Title'),
       'help' => '',
     ),
+    'workshop_page' => array(
+      'name' => t('Workshop Page'),
+      'base' => 'node_content',
+      'description' => t('Like Basic page, but specific to Workshop content'),
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
   );
   return $items;
 }
