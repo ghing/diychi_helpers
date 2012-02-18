@@ -209,9 +209,8 @@ function diychi_events_field_default_fields() {
       'field_name' => 'field_artist',
       'foreign keys' => array(),
       'indexes' => array(
-        'target_entity' => array(
-          0 => 'target_type',
-          1 => 'target_id',
+        'target_id' => array(
+          0 => 'target_id',
         ),
       ),
       'module' => 'entityreference',
@@ -405,9 +404,8 @@ function diychi_events_field_default_fields() {
       'field_name' => 'field_band',
       'foreign keys' => array(),
       'indexes' => array(
-        'target_entity' => array(
-          0 => 'target_type',
-          1 => 'target_id',
+        'target_id' => array(
+          0 => 'target_id',
         ),
       ),
       'module' => 'entityreference',
@@ -549,7 +547,7 @@ function diychi_events_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'field_contact',
-      //'default_value' => NULL,
+      'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -561,6 +559,7 @@ function diychi_events_field_default_fields() {
             'delete' => 'Delete',
             'description' => TRUE,
             'edit' => 'Edit',
+            'view_mode' => 'full',
           ),
           'type' => 'field_collection_view',
           'weight' => 0,
@@ -614,6 +613,7 @@ function diychi_events_field_default_fields() {
             'delete' => 'Delete',
             'description' => TRUE,
             'edit' => 'Edit',
+            'view_mode' => 'full',
           ),
           'type' => 'field_collection_view',
           'weight' => 1,
@@ -975,6 +975,7 @@ function diychi_events_field_default_fields() {
             'delete' => 'Delete',
             'description' => TRUE,
             'edit' => 'Edit',
+            'view_mode' => 'full',
           ),
           'type' => 'field_collection_view',
           'weight' => 4,
@@ -1034,6 +1035,7 @@ function diychi_events_field_default_fields() {
             'delete' => 'Delete',
             'description' => TRUE,
             'edit' => 'Edit',
+            'view_mode' => 'full',
           ),
           'type' => 'field_collection_view',
           'weight' => 5,
@@ -1142,6 +1144,8 @@ function diychi_events_field_default_fields() {
       'indexes' => array(),
       'module' => 'date',
       'settings' => array(
+        'cache_count' => '4',
+        'cache_enabled' => 0,
         'granularity' => array(
           'day' => 'day',
           'hour' => 'hour',
@@ -1187,7 +1191,7 @@ function diychi_events_field_default_fields() {
       'entity_type' => 'node',
       'field_name' => 'field_date',
       'label' => 'Date',
-      'required' => FALSE,
+      'required' => 0,
       'settings' => array(
         'default_value' => 'now',
         'default_value2' => 'same',
@@ -1196,15 +1200,15 @@ function diychi_events_field_default_fields() {
         'user_register_form' => FALSE,
       ),
       'widget' => array(
+        'active' => 1,
         'module' => 'date',
         'settings' => array(
-          'increment' => 15,
-          'input_format' => 'm/d/Y - H:i:s',
+          'increment' => '15',
+          'input_format' => 'M j Y - g:i:sa',
           'input_format_custom' => '',
-          'label_position' => 'above',
-          'repeat_collapsed' => 0,
+          'label_position' => 'none',
           'text_parts' => array(),
-          'year_range' => '-3:+3',
+          'year_range' => '-0:+1',
         ),
         'type' => 'date_select',
         'weight' => '1',
@@ -1371,9 +1375,8 @@ function diychi_events_field_default_fields() {
       'field_name' => 'field_venue',
       'foreign keys' => array(),
       'indexes' => array(
-        'target_entity' => array(
-          0 => 'target_type',
-          1 => 'target_id',
+        'target_id' => array(
+          0 => 'target_id',
         ),
       ),
       'module' => 'entityreference',
@@ -1470,6 +1473,7 @@ function diychi_events_field_default_fields() {
             'delete' => 'Delete',
             'description' => 0,
             'edit' => 'Edit',
+            'view_mode' => 'full',
           ),
           'type' => 'field_collection_view',
           'weight' => '0',
@@ -1482,9 +1486,16 @@ function diychi_events_field_default_fields() {
             'delete' => 'Delete',
             'description' => 0,
             'edit' => 'Edit',
+            'view_mode' => 'full',
           ),
           'type' => 'field_collection_view',
           'weight' => '0',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
       ),
       'entity_type' => 'node',
@@ -1535,6 +1546,7 @@ function diychi_events_field_default_fields() {
             'delete' => 'Delete',
             'description' => TRUE,
             'edit' => 'Edit',
+            'view_mode' => 'full',
           ),
           'type' => 'field_collection_view',
           'weight' => '1',
@@ -1547,9 +1559,16 @@ function diychi_events_field_default_fields() {
             'delete' => 'Delete',
             'description' => TRUE,
             'edit' => 'Edit',
+            'view_mode' => 'full',
           ),
           'type' => 'field_collection_view',
           'weight' => '1',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
       ),
       'entity_type' => 'node',
@@ -1617,6 +1636,12 @@ function diychi_events_field_default_fields() {
           'settings' => array(),
           'type' => 'link_default',
           'weight' => '2',
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
         ),
       ),
       'entity_type' => 'node',
