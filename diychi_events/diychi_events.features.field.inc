@@ -1556,7 +1556,7 @@ function diychi_events_field_default_fields() {
       'bundle' => 'venue',
       'default_value' => array(
         0 => array(
-          'entity' => {
+          'entity' => '{
             "item_id" : null,
             "field_name" : "field_protected_address",
             "field_address" : { "und" : [
@@ -1572,7 +1572,7 @@ function diychi_events_field_default_fields() {
               ]
             },
             "field_public" : { "und" : [] }
-          },
+          }',
         ),
       ),
       'deleted' => '0',
