@@ -10,195 +10,6 @@
 function diychi_events_field_default_fields() {
   $fields = array();
 
-  // Exported field: 'field_collection_item-field_address-field_location'
-  $fields['field_collection_item-field_address-field_location'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_location',
-      'foreign keys' => array(),
-      'indexes' => array(
-        'lid' => array(
-          0 => 'lid',
-        ),
-      ),
-      'module' => 'location_cck',
-      'settings' => array(
-        'gmap_macro' => '[gmap ]',
-        'gmap_marker' => 'drupal',
-        'location_settings' => array(
-          'display' => array(
-            'hide' => array(
-              'additional' => 0,
-              'city' => 0,
-              'coords' => 'coords',
-              'country' => 'country',
-              'country_name' => 'country_name',
-              'fax' => 'fax',
-              'locpick' => 'locpick',
-              'map_link' => 0,
-              'name' => 'name',
-              'phone' => 'phone',
-              'postal_code' => 0,
-              'province' => 0,
-              'province_name' => 'province_name',
-              'street' => 0,
-            ),
-          ),
-          'form' => array(
-            'fields' => array(
-              'additional' => array(
-                'collect' => '1',
-                'default' => '',
-                'weight' => '6',
-              ),
-              'city' => array(
-                'collect' => '1',
-                'default' => '',
-                'weight' => '8',
-              ),
-              'country' => array(
-                'collect' => '4',
-                'default' => 'us',
-                'weight' => '14',
-              ),
-              'fax' => array(
-                'collect' => '0',
-                'default' => '',
-                'weight' => '30',
-              ),
-              'locpick' => array(
-                'collect' => '0',
-                'weight' => '20',
-              ),
-              'name' => array(
-                'collect' => '0',
-                'default' => '',
-                'weight' => '2',
-              ),
-              'phone' => array(
-                'collect' => '0',
-                'default' => '',
-                'weight' => '25',
-              ),
-              'postal_code' => array(
-                'collect' => '1',
-                'default' => '',
-                'weight' => '12',
-              ),
-              'province' => array(
-                'collect' => '1',
-                'default' => '',
-                'weight' => '10',
-                'widget' => 'autocomplete',
-              ),
-              'street' => array(
-                'collect' => '1',
-                'default' => '',
-                'weight' => '4',
-              ),
-            ),
-          ),
-        ),
-      ),
-      'translatable' => '0',
-      'type' => 'location',
-    ),
-    'field_instance' => array(
-      'bundle' => 'field_address',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'location_cck',
-          'settings' => array(),
-          'type' => 'location_default',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'field_collection_item',
-      'field_name' => 'field_location',
-      'label' => 'Address',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 0,
-        'module' => 'location_cck',
-        'settings' => array(),
-        'type' => 'location',
-        'weight' => '1',
-      ),
-    ),
-  );
-
-  // Exported field: 'field_collection_item-field_address-field_public'
-  $fields['field_collection_item-field_address-field_public'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_public',
-      'foreign keys' => array(),
-      'indexes' => array(
-        'value' => array(
-          0 => 'value',
-        ),
-      ),
-      'module' => 'list',
-      'settings' => array(
-        'allowed_values' => array(
-          0 => 'Private',
-          1 => 'Public',
-        ),
-        'allowed_values_function' => '',
-      ),
-      'translatable' => '0',
-      'type' => 'list_boolean',
-    ),
-    'field_instance' => array(
-      'bundle' => 'field_address',
-      'default_value' => array(
-        0 => array(
-          'value' => 0,
-        ),
-      ),
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'list',
-          'settings' => array(),
-          'type' => 'list_default',
-          'weight' => 1,
-        ),
-      ),
-      'entity_type' => 'field_collection_item',
-      'field_name' => 'field_public',
-      'label' => 'Public',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 1,
-        'module' => 'options',
-        'settings' => array(
-          'display_label' => 0,
-        ),
-        'type' => 'options_onoff',
-        'weight' => '3',
-      ),
-    ),
-  );
-
   // Exported field: 'field_collection_item-field_artists-field_artist'
   $fields['field_collection_item-field_artists-field_artist'] = array(
     'field_config' => array(
@@ -367,11 +178,11 @@ function diychi_events_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'text',
           'settings' => array(),
           'type' => 'text_default',
-          'weight' => 1,
+          'weight' => '1',
         ),
       ),
       'entity_type' => 'field_collection_item',
@@ -435,13 +246,13 @@ function diychi_events_field_default_fields() {
       'description' => '',
       'display' => array(
         'default' => array(
-          'label' => 'above',
+          'label' => 'hidden',
           'module' => 'entityreference',
           'settings' => array(
             'link' => FALSE,
           ),
           'type' => 'entityreference_label',
-          'weight' => 0,
+          'weight' => '0',
         ),
       ),
       'entity_type' => 'field_collection_item',
@@ -872,6 +683,133 @@ function diychi_events_field_default_fields() {
     ),
   );
 
+  // Exported field: 'field_collection_item-field_protected_address-field_address'
+  $fields['field_collection_item-field_protected_address-field_address'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_address',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'addressfield',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'addressfield',
+    ),
+    'field_instance' => array(
+      'bundle' => 'field_protected_address',
+      'default_value' => array(
+        0 => array(
+          'element_key' => 'field_collection_item|field_protected_address|field_address|und|0',
+          'thoroughfare' => '',
+          'premise' => '',
+          'locality' => 'Chicago',
+          'administrative_area' => 'IL',
+          'postal_code' => '',
+          'country' => 'US',
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'addressfield',
+          'settings' => array(
+            'format_handlers' => array(
+              0 => 'address',
+            ),
+            'use_widget_handlers' => 1,
+          ),
+          'type' => 'addressfield_default',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'field_collection_item',
+      'field_name' => 'field_address',
+      'label' => 'Address',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'addressfield',
+        'settings' => array(
+          'available_countries' => array(
+            'US' => 'US',
+          ),
+          'format_handlers' => array(
+            'address' => 'address',
+            'name-full' => 0,
+            'name-oneline' => 0,
+            'organisation' => 0,
+          ),
+        ),
+        'type' => 'addressfield_standard',
+        'weight' => '1',
+      ),
+    ),
+  );
+
+  // Exported field: 'field_collection_item-field_protected_address-field_public'
+  $fields['field_collection_item-field_protected_address-field_public'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_public',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => 'Private',
+          1 => 'Public',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_boolean',
+    ),
+    'field_instance' => array(
+      'bundle' => 'field_protected_address',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => 1,
+        ),
+      ),
+      'entity_type' => 'field_collection_item',
+      'field_name' => 'field_public',
+      'label' => 'Make address public?',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(),
+        'type' => 'options_buttons',
+        'weight' => '0',
+      ),
+    ),
+  );
+
   // Exported field: 'node-artist-body'
   $fields['node-artist-body'] = array(
     'field_config' => array(
@@ -939,7 +877,89 @@ function diychi_events_field_default_fields() {
           'summary_rows' => 5,
         ),
         'type' => 'text_textarea_with_summary',
-        'weight' => -4,
+        'weight' => '2',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-artist-field_website'
+  $fields['node-artist-field_website'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '-1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_website',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'link',
+      'settings' => array(
+        'attributes' => array(
+          'class' => '',
+          'rel' => '',
+          'target' => 'default',
+        ),
+        'display' => array(
+          'url_cutoff' => 80,
+        ),
+        'enable_tokens' => 1,
+        'title' => 'optional',
+        'title_maxlength' => 128,
+        'title_value' => '',
+        'url' => 0,
+      ),
+      'translatable' => '0',
+      'type' => 'link_field',
+    ),
+    'field_instance' => array(
+      'bundle' => 'artist',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'link',
+          'settings' => array(),
+          'type' => 'link_default',
+          'weight' => 1,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_website',
+      'label' => 'Website',
+      'required' => 0,
+      'settings' => array(
+        'attributes' => array(
+          'class' => '',
+          'configurable_title' => 0,
+          'rel' => '',
+          'target' => 'default',
+          'title' => '',
+        ),
+        'display' => array(
+          'url_cutoff' => '80',
+        ),
+        'enable_tokens' => 1,
+        'title' => 'optional',
+        'title_maxlength' => '128',
+        'title_value' => '',
+        'url' => 0,
+        'user_register_form' => FALSE,
+        'validate_url' => 1,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'link',
+        'settings' => array(),
+        'type' => 'link_field',
+        'weight' => '1',
       ),
     ),
   );
@@ -1442,79 +1462,6 @@ function diychi_events_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-venue-field_address'
-  $fields['node-venue-field_address'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_address',
-      'foreign keys' => array(),
-      'indexes' => array(),
-      'module' => 'field_collection',
-      'settings' => array(
-        'path' => '',
-      ),
-      'translatable' => '0',
-      'type' => 'field_collection',
-    ),
-    'field_instance' => array(
-      'bundle' => 'venue',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'inline',
-          'module' => 'field_collection',
-          'settings' => array(
-            'add' => 'Add',
-            'delete' => 'Delete',
-            'description' => 0,
-            'edit' => 'Edit',
-            'view_mode' => 'full',
-          ),
-          'type' => 'field_collection_view',
-          'weight' => '0',
-        ),
-        'full' => array(
-          'label' => 'inline',
-          'module' => 'field_collection',
-          'settings' => array(
-            'add' => 'Add',
-            'delete' => 'Delete',
-            'description' => 0,
-            'edit' => 'Edit',
-            'view_mode' => 'full',
-          ),
-          'type' => 'field_collection_view',
-          'weight' => '0',
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_address',
-      'label' => 'Address',
-      'required' => 0,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'active' => 0,
-        'module' => 'field_collection',
-        'settings' => array(),
-        'type' => 'field_collection_embed',
-        'weight' => '1',
-      ),
-    ),
-  );
-
   // Exported field: 'node-venue-field_contact'
   $fields['node-venue-field_contact'] = array(
     'field_config' => array(
@@ -1584,6 +1531,86 @@ function diychi_events_field_default_fields() {
         'settings' => array(),
         'type' => 'field_collection_embed',
         'weight' => '2',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-venue-field_protected_address'
+  $fields['node-venue-field_protected_address'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_protected_address',
+      'foreign keys' => array(),
+      'indexes' => array(),
+      'module' => 'field_collection',
+      'settings' => array(
+        'path' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'field_collection',
+    ),
+    'field_instance' => array(
+      'bundle' => 'venue',
+      'default_value' => array(
+        0 => array(
+          'entity' => {
+            "item_id" : null,
+            "field_name" : "field_protected_address",
+            "field_address" : { "und" : [
+                {
+                  "element_key" : "field_collection_item|field_protected_address|field_address|und|0",
+                  "thoroughfare" : "",
+                  "premise" : "",
+                  "locality" : "Chicago",
+                  "administrative_area" : "IL",
+                  "postal_code" : "",
+                  "country" : "US"
+                }
+              ]
+            },
+            "field_public" : { "und" : [] }
+          },
+        ),
+      ),
+      'deleted' => '0',
+      'description' => '',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'field_collection',
+          'settings' => array(
+            'add' => 'Add',
+            'delete' => 'Delete',
+            'description' => TRUE,
+            'edit' => 'Edit',
+            'view_mode' => 'full',
+          ),
+          'type' => 'field_collection_view',
+          'weight' => 3,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_protected_address',
+      'label' => 'Address',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 0,
+        'module' => 'field_collection',
+        'settings' => array(),
+        'type' => 'field_collection_embed',
+        'weight' => '1',
       ),
     ),
   );
@@ -1695,6 +1722,7 @@ function diychi_events_field_default_fields() {
   t('Description');
   t('Email');
   t('Facebook Event');
+  t('Make address public?');
   t('Phone');
   t('Phone #');
   t('Public');
