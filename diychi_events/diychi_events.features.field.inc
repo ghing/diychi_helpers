@@ -724,7 +724,7 @@ function diychi_events_field_default_fields() {
             'use_widget_handlers' => 1,
           ),
           'type' => 'addressfield_default',
-          'weight' => 0,
+          'weight' => 1,
         ),
       ),
       'entity_type' => 'field_collection_item',
@@ -749,7 +749,7 @@ function diychi_events_field_default_fields() {
           ),
         ),
         'type' => 'addressfield_standard',
-        'weight' => '1',
+        'weight' => '3',
       ),
     ),
   );
@@ -781,7 +781,11 @@ function diychi_events_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'field_protected_address',
-      'default_value' => NULL,
+      'default_value' => array(
+        0 => array(
+          'value' => 0,
+        ),
+      ),
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -790,12 +794,12 @@ function diychi_events_field_default_fields() {
           'module' => 'list',
           'settings' => array(),
           'type' => 'list_default',
-          'weight' => 1,
+          'weight' => 0,
         ),
       ),
       'entity_type' => 'field_collection_item',
       'field_name' => 'field_public',
-      'label' => 'Make address public?',
+      'label' => 'Public',
       'required' => 0,
       'settings' => array(
         'user_register_form' => FALSE,
@@ -803,9 +807,11 @@ function diychi_events_field_default_fields() {
       'widget' => array(
         'active' => 1,
         'module' => 'options',
-        'settings' => array(),
-        'type' => 'options_buttons',
-        'weight' => '0',
+        'settings' => array(
+          'display_label' => 0,
+        ),
+        'type' => 'options_onoff',
+        'weight' => '2',
       ),
     ),
   );
@@ -1554,27 +1560,7 @@ function diychi_events_field_default_fields() {
     ),
     'field_instance' => array(
       'bundle' => 'venue',
-      'default_value' => array(
-        0 => array(
-          'entity' => '{
-            "item_id" : null,
-            "field_name" : "field_protected_address",
-            "field_address" : { "und" : [
-                {
-                  "element_key" : "field_collection_item|field_protected_address|field_address|und|0",
-                  "thoroughfare" : "",
-                  "premise" : "",
-                  "locality" : "Chicago",
-                  "administrative_area" : "IL",
-                  "postal_code" : "",
-                  "country" : "US"
-                }
-              ]
-            },
-            "field_public" : { "und" : [] }
-          }',
-        ),
-      ),
+      'default_value' => NULL,
       'deleted' => '0',
       'description' => '',
       'display' => array(
@@ -1722,7 +1708,6 @@ function diychi_events_field_default_fields() {
   t('Description');
   t('Email');
   t('Facebook Event');
-  t('Make address public?');
   t('Phone');
   t('Phone #');
   t('Public');
