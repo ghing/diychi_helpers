@@ -250,13 +250,28 @@ function diychi_events_views_default_views() {
     'event' => 'event',
   );
 
-  /* Display: Event List */
-  $handler = $view->new_display('page', 'Event List', 'page');
+  /* Display: Events by month */
+  $handler = $view->new_display('page', 'Events by month', 'page');
+  $handler->display->display_options['display_description'] = 'Events for a particular year and month';
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['label'] = 'No events for this month';
+  $handler->display->display_options['empty']['area']['empty'] = FALSE;
+  $handler->display->display_options['empty']['area']['content'] = 'There are no events for %2';
+  $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['empty']['area']['tokenize'] = 1;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Date -  start date (field_date) */
   $handler->display->display_options['arguments']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['arguments']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['arguments']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['arguments']['field_date_value']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['field_date_value']['title_enable'] = 1;
+  $handler->display->display_options['arguments']['field_date_value']['title'] = 'Events for %1';
+  $handler->display->display_options['arguments']['field_date_value']['default_argument_type'] = 'php';
   $handler->display->display_options['arguments']['field_date_value']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['field_date_value']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_date_value']['summary']['format'] = 'default_summary';
@@ -267,13 +282,19 @@ function diychi_events_views_default_views() {
   $handler->display->display_options['arguments']['field_date_value_1']['id'] = 'field_date_value_1';
   $handler->display->display_options['arguments']['field_date_value_1']['table'] = 'field_data_field_date';
   $handler->display->display_options['arguments']['field_date_value_1']['field'] = 'field_date_value';
+  $handler->display->display_options['arguments']['field_date_value_1']['title_enable'] = 1;
+  $handler->display->display_options['arguments']['field_date_value_1']['title'] = 'Events for %2';
+  $handler->display->display_options['arguments']['field_date_value_1']['default_argument_type'] = 'php';
   $handler->display->display_options['arguments']['field_date_value_1']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['field_date_value_1']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['field_date_value_1']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['field_date_value_1']['summary_options']['items_per_page'] = '25';
   $handler->display->display_options['arguments']['field_date_value_1']['specify_validation'] = 1;
   $handler->display->display_options['arguments']['field_date_value_1']['validate']['type'] = 'php';
-  $handler->display->display_options['arguments']['field_date_value_1']['validate_options']['code'] = '$handler->argument = $handler->view->args[0] . \'-\' . $argument;
+  $handler->display->display_options['arguments']['field_date_value_1']['validate_options']['code'] = '// Rewrite the argument from M (or MM) to YYYY-MM if a year argument is present
+if (count($handler->view->args) == 2) {
+  $handler->argument = $handler->view->args[0] . \'-\' . $argument;
+}
 if ($argument > 0 && $argument < 13) {
   return TRUE;
 }
@@ -316,6 +337,48 @@ return FALSE;';
   $handler->display->display_options['filters']['field_date_value']['default_date'] = 'today';
   $handler->display->display_options['filters']['field_date_value']['default_to_date'] = 'today +7 day';
   $handler->display->display_options['path'] = 'upcoming-events';
+
+  /* Display: Events this month */
+  $handler = $view->new_display('page', 'Events this month', 'page_2');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'This month\'s events';
+  $handler->display->display_options['display_description'] = 'Events for the current month';
+  $handler->display->display_options['defaults']['empty'] = FALSE;
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['label'] = 'No events for this month';
+  $handler->display->display_options['empty']['area']['empty'] = FALSE;
+  $handler->display->display_options['empty']['area']['content'] = 'There are no events for %2';
+  $handler->display->display_options['empty']['area']['format'] = 'filtered_html';
+  $handler->display->display_options['empty']['area']['tokenize'] = 1;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 1;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'event' => 'event',
+  );
+  /* Filter criterion: Content: Date -  start date (field_date) */
+  $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
+  $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['granularity'] = 'month';
+  $handler->display->display_options['filters']['field_date_value']['default_date'] = 'now';
+  $handler->display->display_options['path'] = 'events';
+  $handler->display->display_options['menu']['type'] = 'normal';
+  $handler->display->display_options['menu']['title'] = 'Event List';
+  $handler->display->display_options['menu']['name'] = 'main-menu';
   $export['event_list'] = $view;
 
   return $export;
