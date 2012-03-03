@@ -55,3 +55,39 @@ function diychi_events_services_resources() {
     ),
   );
 }
+
+function diychi_events_token_info($type = 'all') {
+	$data['tokens']['node']['event_month'] =  array(
+		'name' => t('Event Month'),
+		'description' => t('The event\'s month.'),
+	);
+
+	$data['tokens']['node']['event_year'] =  array(
+		'name' => t('Event Year'),
+		'description' => t('The event\'s year.'),
+	);
+	return $data;
+}
+
+function diychi_events_tokens($type, $tokens, array $data = array(), array $options = array()) {
+	$replacements = array();
+
+	if ($type == 'node' && !empty($data['node'])) {
+		$node = $data['node'];
+		$timestamp = strtotime($node->field_date['und'][0]['value']);
+		
+
+		foreach ($tokens as $name => $original) {
+			switch ($name) {
+				case 'event_month':
+					$replacements[$original] = format_date($timestamp, 'custom', 'n');
+					break;
+				case 'event_year';
+					$replacements[$original] = format_date($timestamp, 'custom', 'Y');
+					break;
+			}
+		}
+	}
+
+	return $replacements;
+}
